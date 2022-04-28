@@ -1,10 +1,5 @@
-//
-// Created by Ado! on 28.04.2022.
-//
-
 #ifndef APPLIED_MATHS_LAB_2_PARABOLAWITHTWOARGUMENTS_H
 #define APPLIED_MATHS_LAB_2_PARABOLAWITHTWOARGUMENTS_H
-
 
 #include <vector>
 
