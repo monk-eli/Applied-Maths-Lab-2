@@ -5,6 +5,8 @@
 #ifndef APPLIED_MATHS_LAB_2_FUNCTIONS_H
 #define APPLIED_MATHS_LAB_2_FUNCTIONS_H
 #include <fstream>
+#include <vector>
+
 double ParabolaWithTwoArguments(std::vector<double> args);
 std::vector<double> ParabolaWithTwoArgumentsGradient(std::vector<double> args);
 
