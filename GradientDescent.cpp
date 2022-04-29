@@ -1,5 +1,5 @@
 #include "h/GradientDescent.h"
-#include "h/ParabolaWithTwoArguments.h"
+#include "h/Functions.h"
 #include "h/Steps.h"
 
 std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accuracy, class Step *step) {
@@ -9,7 +9,7 @@ std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accu
 
     std::vector<double> x_next = x_prev;
 
-    double a = step->get();
+    double a = step->getFirstStep();
 
     std::vector<double> grad = f->Gradient(x_prev);
 

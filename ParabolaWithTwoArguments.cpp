@@ -1,10 +1,6 @@
-//
-// Created by Иванов on 28.04.2022.
-//
-
 #include <cmath>
 #include <vector>
-#include "h/ParabolaWithTwoArguments.h"
+#include "h/Functions.h"
 
 ParabolaWithTwoArguments::ParabolaWithTwoArguments(double x, double y){
     ParabolaWithTwoArguments::args = {

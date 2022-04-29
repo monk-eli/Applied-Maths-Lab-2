@@ -1,6 +1,6 @@
 #include "h/GradientDescent.h"
 #include "h/Steps.h"
-#include "h/ParabolaWithTwoArguments.h"
+#include "h/Functions.h"
 
 int main() {
     TwoDimensionalFunction *func = new ParabolaWithTwoArguments(10, 10);

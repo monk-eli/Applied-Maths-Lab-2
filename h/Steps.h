@@ -1,8 +1,11 @@
 #ifndef APPLIED_MATHS_LAB_2_STEPS_H
 #define APPLIED_MATHS_LAB_2_STEPS_H
 
-
-double ConstantStep(double a);
+class Step {
+public:
+    virtual double getFirstStep() = 0;
+    virtual double method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) = 0;
+};
 
 class ConstantStep : public Step {
 private:
@@ -10,18 +13,18 @@ private:
 public:
     ConstantStep(double a);
 
-    double get();
+    double getFirstStep();
 
     double method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) override;
 };
 
-class GoldenRatio : public Step {
+class FractionizeStep : public Step {
 private:
     double a;
 public:
-    GoldenRatio(double a);
+    FractionizeStep(double a);
 
-    double get();
+    double getFirstStep();
 
     double method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) override;
 };

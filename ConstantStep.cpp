@@ -1,4 +1,4 @@
-#include "TwoDimensionalFunction.h"
+#include "h/Functions.h"
 #include "h/Steps.h"
 
 double ConstantStep::method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) {
@@ -9,6 +9,6 @@ ConstantStep::ConstantStep(double a) {
     ConstantStep::a = a;
 }
 
-double ConstantStep::get() {
+double ConstantStep::getFirstStep() {
     return ConstantStep::a;
 }
