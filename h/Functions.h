@@ -3,6 +3,8 @@
 
 #include <vector>
 
+
+
 class TwoDimensionalFunction {
 public:
     virtual const std::vector<double> &getArgs() const = 0;

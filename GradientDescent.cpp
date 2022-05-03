@@ -29,6 +29,6 @@ std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accu
         }
     }
 
-    std::cout << "Iterations: " << iteration << "\n";
+    std::cout << "| Iterations: " << iteration << "\n";
     return x_next;
 }

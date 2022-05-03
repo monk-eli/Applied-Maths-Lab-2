@@ -1,6 +1,8 @@
 #ifndef APPLIED_MATHS_LAB_2_STEPS_H
 #define APPLIED_MATHS_LAB_2_STEPS_H
 
+#include <vector>
+
 class Step {
 public:
     virtual double getFirstStep() = 0;

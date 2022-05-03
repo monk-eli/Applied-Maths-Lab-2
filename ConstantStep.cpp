@@ -10,5 +10,5 @@ ConstantStep::ConstantStep(double a) {
 }
 
 double ConstantStep::getFirstStep() {
-    return ConstantStep::a;
+    return this->a;
 }
