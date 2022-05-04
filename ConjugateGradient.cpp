@@ -3,43 +3,47 @@
 #include "h/ConjugateGradient.h"
 #include <cmath>
 #include <utility>
+#include <stdexcept>
+#include <numeric>
+#include <iostream>
 
-class NeededFunction {
-private:
-    TwoDimensionalFunction *f;
-    std::vector<double> args;
-    std::vector<double> direction;
-public:
-    NeededFunction(TwoDimensionalFunction *f, std::vector<double> args, std::vector<double> direction){
-        this->f = f;
-        this->args = std::move(args);
-        this->direction = std::move(direction);
-    }
+NeededFunction::NeededFunction(TwoDimensionalFunction *f, std::vector<double> args, std::vector<double> direction) {
+    this->f = f;
+    this->args = std::move(args);
+    this->direction = std::move(direction);
+}
 
-    double result(double a) {
-        std::vector<double> buffer {
+double NeededFunction::result(double a) {
+    std::vector<double> buffer{
             args[0] + a * direction[0],
             args[1] + a * direction[1],
-        };
+    };
 
-        return f->Result(buffer);
-    }
+    return f->Result(buffer);
+}
 
     double SWM() {
         double h = 0.01;
         double a0 = 0;
 
-        while(!((this->result(a0 - h) > this->result(a0)) && (this->result(a0 + h)
-        > this->result(a0)))){
-            if (this->result(a0 + h) > this->result(a0))
-                a0 = a0 - h / 2;
-            else
-                a0 = a0 + h / 2;
-        }
-
-        return a0;
+    while (!((this->result(a0 - h) > this->result(a0)) && (this->result(a0 + h)
+                                                           > this->result(a0)))) {
+        if (this->result(a0 + h) > this->result(a0))
+            a0 = a0 - h / 2;
+        else
+            a0 = a0 + h / 2;
     }
-};
+
+    return a0;
+}
+
+
+double DotProduct(std::vector<double> vec1, std::vector<double> vec2) {
+    if (vec1.size() != vec2.size()) {
+        throw std::logic_error("Vectors are different in size");
+    }
+
+    double result = 0;
 
 
 void ConjGradMethod(class TwoDimensionalFunction *f, double error, std::vector<double> x, std::vector<double> x_prev,
