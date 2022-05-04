@@ -2,11 +2,11 @@
 #include "h/Steps.h"
 
 double ConstantStep::method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) {
-    return ConstantStep::a;
+    return this->a;
 }
 
 ConstantStep::ConstantStep(double a) {
-    ConstantStep::a = a;
+    this->a = a;
 }
 
 double ConstantStep::getFirstStep() {

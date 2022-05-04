@@ -13,6 +13,8 @@ public:
 
     virtual double Result(const std::vector<double> &args) = 0;
 
+    virtual std::vector<double> AntiGradient(const std::vector<double> &args) = 0;
+
     virtual std::vector<double> Gradient(const std::vector<double> &args) = 0;
 };
 
@@ -20,12 +22,15 @@ class ParabolaWithTwoArguments : public TwoDimensionalFunction {
 private:
     std::vector<double> args;
 
+
 public:
     ParabolaWithTwoArguments(double x, double y);
 
     double Result(const std::vector<double> &args);
 
     std::vector<double> Gradient(const std::vector<double> &args);
+
+    std::vector<double> AntiGradient(const std::vector<double> &args);
 
     const std::vector<double> &getArgs() const;
 

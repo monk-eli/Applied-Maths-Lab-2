@@ -30,9 +30,9 @@ double FractionizeStep::method(class TwoDimensionalFunction *f, std::vector<doub
 }
 
 FractionizeStep::FractionizeStep(double a) {
-    FractionizeStep::a = a;
+    this->a = a;
 }
 
 double FractionizeStep::getFirstStep() {
-    return FractionizeStep::a;
+    return this->a;
 }
