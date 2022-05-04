@@ -1,6 +1,8 @@
 #include "h/GradientDescent.h"
 #include "h/Steps.h"
 #include "h/Functions.h"
+#include "h/MinMethod.h"
+#include "h/ConjugateGradient.h"
 
 int main() {
     TwoDimensionalFunction *func = new ParabolaWithTwoArguments(10, 10);
@@ -33,6 +35,20 @@ int main() {
 
     for (int i = 0; i < 2; i++) {
         std::cout << "| " << result_4[i] << "\n";
+    }
+
+    std::cout << "==========Ganja Method==========\n";
+    std::vector<double> x_prev = {
+            100,
+            100,
+    };
+
+    MinMethod *GRM = new GoldenRatioM();
+
+    std::vector<double> result_5 = ConjGradMethod(func, 0.001, func->getArgs(), x_prev, GRM);
+
+    for (int i = 0; i < 2; i++) {
+        std::cout << "| " << result_5[i] << "\n";
     }
 
     return 0;
