@@ -1,7 +1,8 @@
-#include <cmath>
-#include <stdexcept>
 #include "h/Steps.h"
 #include "h/Functions.h"
+
+#include <cmath>
+#include <stdexcept>
 
 Fibonacci::Fibonacci(double a){
     this->a = a;

@@ -206,4 +206,3 @@ std::vector<double> BrentM::result(class NeededFunction f, double left_border, d
 
     return result;
 }
-

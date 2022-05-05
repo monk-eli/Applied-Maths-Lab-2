@@ -14,6 +14,7 @@ public:
 class DichotomyM : public MinMethod {
 private:
     const double D = 0.00000005;
+
 public:
     std::vector<double> result(class NeededFunction f, double left_border, double right_border, double eps) override;
 };
@@ -21,6 +22,7 @@ public:
 class GoldenRatioM : public MinMethod {
 private:
     const double GR = (1 + std::sqrt(5)) / 2;
+
 public:
     std::vector<double> result(class NeededFunction f, double left_border, double right_border, double eps) override;
 };
@@ -44,6 +46,7 @@ class BrentM : public MinMethod {
 private:
     const double GR = (1 + std::sqrt(5)) / 2;
     const double GR_REV = (3 - std::sqrt(5)) / 2;
+
 public:
     std::vector<double> result(class NeededFunction f, double left_border, double right_border, double eps) override;
 };

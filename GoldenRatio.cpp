@@ -1,5 +1,6 @@
 #include "h/Steps.h"
 #include "h/Functions.h"
+
 #include <cmath>
 #include <stdexcept>
 

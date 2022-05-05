@@ -6,12 +6,14 @@
 class Step {
 public:
     virtual double getFirstStep() = 0;
+
     virtual double method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) = 0;
 };
 
 class ConstantStep : public Step {
 private:
     double a;
+
 public:
     ConstantStep(double a);
 
@@ -23,6 +25,7 @@ public:
 class FractionizeStep : public Step {
 private:
     double a;
+
 public:
     FractionizeStep(double a);
 
@@ -37,6 +40,7 @@ private:
     double left_border = 0;
     double right_border = 0;
     double accuracy;
+
 public:
     GoldenRatio(double a);
 
@@ -55,6 +59,7 @@ private:
     double left_border = 0;
     double right_border = 0;
     double accuracy;
+
 public:
     Fibonacci(double a);
 
@@ -68,6 +73,5 @@ public:
 
     double method(class TwoDimensionalFunction *f, std::vector<double> prev_x, double a) override;
 };
-
 
 #endif //APPLIED_MATHS_LAB_2_STEPS_H

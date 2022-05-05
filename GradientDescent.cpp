@@ -1,6 +1,7 @@
 #include "h/GradientDescent.h"
 #include "h/Functions.h"
 #include "h/Steps.h"
+
 #include <numeric>
 
 std::vector<std::vector<double>> GradientDescent(class TwoDimensionalFunction *f, double accuracy, class Step *step) {
@@ -25,7 +26,6 @@ std::vector<std::vector<double>> GradientDescent(class TwoDimensionalFunction *f
     }
 
     trajectory.push_back(x_next);
-
 
     while (std::abs(f->Result(x_next) - f->Result(x_prev)) >= accuracy) {
         iteration++;

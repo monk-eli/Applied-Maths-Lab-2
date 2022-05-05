@@ -1,5 +1,6 @@
 #include "h/Steps.h"
 #include "h/Functions.h"
+
 #include <cmath>
 
 double FractionizeStep::method(class TwoDimensionalFunction *f, std::vector<double> x_prev, double a) {

@@ -30,7 +30,6 @@ for i in range(len(linesCGD)):
     for j in range(2):
         floatsCGD[i].append(dot[j])
 
-
 fig, axes = pypl.subplots(nrows=1, ncols=1)
 args = np.meshgrid(np.arange(-10, 10, 0.1), np.arange(-10, 10, 0.1))
 axes.contour(*args, parabolicFunction(args), 10)

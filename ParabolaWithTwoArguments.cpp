@@ -1,6 +1,8 @@
+#include "h/Functions.h"
+
+
 #include <cmath>
 #include <vector>
-#include "h/Functions.h"
 
 ParabolaWithTwoArguments::ParabolaWithTwoArguments(double x, double y) {
     ParabolaWithTwoArguments::args = {
@@ -22,7 +24,7 @@ double ParabolaWithTwoArguments::Result(const std::vector<double> &args) {
 }
 
 std::vector<double> ParabolaWithTwoArguments::Gradient(const std::vector<double> &args) {
-    std::vector<double> result {
+    std::vector<double> result{
             2 * args[0] - 2 * args[1],
             6 * args[1] - 2 * args[0]
     };
@@ -31,9 +33,9 @@ std::vector<double> ParabolaWithTwoArguments::Gradient(const std::vector<double>
 }
 
 std::vector<double> ParabolaWithTwoArguments::AntiGradient(const std::vector<double> &args) {
-    std::vector<double> result {
-            - 2 * args[0] + 2 * args[1],
-            - 6 * args[1] + 2 * args[0]
+    std::vector<double> result{
+            -2 * args[0] + 2 * args[1],
+            -6 * args[1] + 2 * args[0]
     };
 
     return result;

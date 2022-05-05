@@ -1,7 +1,7 @@
 #include "h/Functions.h"
-#include "h/Steps.h"
 #include "h/ConjugateGradient.h"
 #include "h/MinMethod.h"
+
 #include <cmath>
 #include <utility>
 #include <stdexcept>
@@ -38,7 +38,6 @@ double NeededFunction::SWM() {
     return a0;
 }
 
-
 double DotProduct(std::vector<double> vec1, std::vector<double> vec2) {
     if (vec1.size() != vec2.size()) {
         throw std::logic_error("Vectors are different in size");
@@ -57,12 +56,11 @@ double VectorNorm(std::vector<double> vec) {
     return std::sqrt(DotProduct(vec, vec));
 }
 
-
-std::vector<std::vector<double>>  ConjGradMethod(class TwoDimensionalFunction *f, double error, std::vector<double> x,
-        std::vector<double> x_prev, class MinMethod *minMethod) {
+std::vector<std::vector<double>> ConjGradMethod(class TwoDimensionalFunction *f, double error, std::vector<double> x,
+                                                std::vector<double> x_prev, class MinMethod *minMethod) {
 
     std::vector<std::vector<double>> trajectory;
-    std::vector<double> direction {
+    std::vector<double> direction{
             0, 0,
     };
 

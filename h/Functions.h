@@ -3,8 +3,6 @@
 
 #include <vector>
 
-
-
 class TwoDimensionalFunction {
 public:
     virtual const std::vector<double> &getArgs() const = 0;
@@ -22,7 +20,6 @@ class ParabolaWithTwoArguments : public TwoDimensionalFunction {
 private:
     std::vector<double> args;
 
-
 public:
     ParabolaWithTwoArguments(double x, double y);
 
@@ -35,7 +32,6 @@ public:
     const std::vector<double> &getArgs() const;
 
     void setArgs(const std::vector<double> &args);
-
 };
 
 #endif //APPLIED_MATHS_LAB_2_FUNCTIONS_H
