@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "h/GradientDescent.h"
 #include "h/Steps.h"
 #include "h/Functions.h"
@@ -14,9 +16,7 @@ int main() {
     std::cout << "==========Constant Step==========\n";
     std::vector<double> result_3 = GradientDescent(func, 0.001, CStep);
 
-    for (int i = 0; i < 2; i++) {
-        std::cout << "| " << result_3[i] << "\n";
-    }
+
     std::cout << "==========Fractionize step==========\n";
     std::vector<double> result_2 = GradientDescent(func, 0.001, FStep);
 
