@@ -58,9 +58,10 @@ double VectorNorm(std::vector<double> vec) {
 }
 
 
-std::vector<double> ConjGradMethod(class TwoDimensionalFunction *f, double error, std::vector<double> x,
+std::vector<std::vector<double>>  ConjGradMethod(class TwoDimensionalFunction *f, double error, std::vector<double> x,
         std::vector<double> x_prev, class MinMethod *minMethod) {
 
+    std::vector<std::vector<double>> trajectory;
     std::vector<double> direction {
             0, 0,
     };
@@ -68,6 +69,9 @@ std::vector<double> ConjGradMethod(class TwoDimensionalFunction *f, double error
     int iteration = 0;
     double beta = 0;
     std::vector<std::vector<double>> tracking;
+    std::vector<double> ratios;
+
+    trajectory.push_back(x);
 
     while (std::abs(f->Result(x) - f->Result(x_prev)) > error) {
         iteration += 1;
@@ -94,8 +98,18 @@ std::vector<double> ConjGradMethod(class TwoDimensionalFunction *f, double error
         x[0] = x[0] + alpha * direction[0];
         x[1] = x[1] + alpha * direction[1];
         beta = DotProduct(xGrad, xPrevGrad) / std::pow(VectorNorm(xPrevGrad), 2);
+
+        double xRatioPlusYBBetter = x[0] / x_prev[0];
+        double yRatioPlusYBBetter = x[1] / x_prev[1];
+
+        ratios.push_back(((xRatioPlusYBBetter + yRatioPlusYBBetter) / 2) / 2);
+        trajectory.push_back(x);
     }
 
+    std::cout << "| Result: " << x[0] << " " << x[1] << "\n";
     std::cout << "| Iterations: " << iteration << "\n";
-    return x;
+    std::cout << "| Speed: " << std::abs(std::accumulate(ratios.begin(), ratios.end(), 0.0) / double(ratios.size()))
+              << "\n";
+
+    return trajectory;
 }

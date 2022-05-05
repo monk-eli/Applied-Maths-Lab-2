@@ -3,9 +3,10 @@
 #include "h/Steps.h"
 #include <numeric>
 
-std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accuracy, class Step *step) {
+std::vector<std::vector<double>> GradientDescent(class TwoDimensionalFunction *f, double accuracy, class Step *step) {
     int iteration = 0;
-    std::vector<double> trajectory;
+    std::vector<double> ratios;
+    std::vector<std::vector<double>> trajectory;
 
     double ratio = 0;
 
@@ -17,9 +18,13 @@ std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accu
 
     std::vector<double> grad = f->Gradient(x_prev);
 
+    trajectory.push_back(x_next);
+
     for (int i = 0; i < 2; i++) {
         x_next[i] = x_prev[i] - a * grad[i];
     }
+
+    trajectory.push_back(x_next);
 
 
     while (std::abs(f->Result(x_next) - f->Result(x_prev)) >= accuracy) {
@@ -37,14 +42,15 @@ std::vector<double> GradientDescent(class TwoDimensionalFunction *f, double accu
         double yRatioPlusYBBetter = x_next[1] / x_prev[1];
 
         ratio = (xRatioPlusYBBetter + yRatioPlusYBBetter) / 2;
-        trajectory.push_back((ratio) / 2);
+        ratios.push_back((ratio) / 2);
+        trajectory.push_back(x_next);
 
-        std::cout << "| Dot: " << x_next[0]; // << " " << x_next[1] << "\n| Ratio:" << std::abs(ratio) << "\n";
+        // std::cout << "| Dot: " << x_next[0] << " " << x_next[1] << "| Ratio:" << std::abs(ratio) << "\n";
     }
 
-
+    std::cout << "| Result: " << x_next[0] << " " << x_next[1] << "\n";
     std::cout << "| Iterations: " << iteration << "\n";
-    std::cout << "| Speed: " << std::accumulate(trajectory.begin(), trajectory.end(), 0.0) / double(trajectory.size())
+    std::cout << "| Speed: " << std::abs(std::accumulate(ratios.begin(), ratios.end(), 0.0) / double(ratios.size()))
               << "\n";
-    return x_next;
+    return trajectory;
 }
