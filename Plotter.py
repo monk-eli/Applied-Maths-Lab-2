@@ -25,7 +25,7 @@ def parseOutputToFloat(fileName):
 def plotResult(dotFloats, labelName, fileName):
     fig, axes = pypl.subplots(nrows=1, ncols=1)
     args = np.meshgrid(np.arange(-10, 10, 0.1), np.arange(-10, 10, 0.1))
-    axes.contour(*args, parabolicFunction(args), 10)
+    axes.contour(*args, parabolicFunction(args), 50)
     axes.plot(*np.array(dotFloats).T, label=labelName)
     axes.legend()
     pypl.savefig(fileName)
@@ -34,7 +34,7 @@ def plotResult(dotFloats, labelName, fileName):
 # Conjugate gradient descent and GRStep gradient descent comparison plot
 fig, axes = pypl.subplots(nrows=1, ncols=1)
 args = np.meshgrid(np.arange(-10, 10, 0.1), np.arange(-10, 10, 0.1))
-axes.contour(*args, parabolicFunction(args), 10)
+axes.contour(*args, parabolicFunction(args), 50)
 axes.plot(*np.array(parseOutputToFloat("output-gradient/ConjugateGradientDescent")).T,
           label='Метод сопряженных градиентов')
 axes.plot(*np.array(parseOutputToFloat("output-gradient/GRStepDescent")).T, label='Метод градиентного спуска')
